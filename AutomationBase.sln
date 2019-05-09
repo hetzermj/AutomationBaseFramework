@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomationBase", "Automatio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppiumBase", "AppiumBase\AppiumBase.csproj", "{0230A9DA-255C-4D9F-AB49-8A859E5ADDA9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIAutomationClientBase", "UIAutomationClientBase\UIAutomationClientBase.csproj", "{5199525C-42FB-4FD7-A677-FEE24BEA0D64}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{0230A9DA-255C-4D9F-AB49-8A859E5ADDA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0230A9DA-255C-4D9F-AB49-8A859E5ADDA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0230A9DA-255C-4D9F-AB49-8A859E5ADDA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5199525C-42FB-4FD7-A677-FEE24BEA0D64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5199525C-42FB-4FD7-A677-FEE24BEA0D64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5199525C-42FB-4FD7-A677-FEE24BEA0D64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5199525C-42FB-4FD7-A677-FEE24BEA0D64}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
