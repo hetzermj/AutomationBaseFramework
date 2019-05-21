@@ -22,7 +22,7 @@ namespace UIAutomationClientBase
 
 			Thread.Sleep(5000);
 
-			app.KillApplication();
+			DesktopApp.WhiteWinFormsTestApp.KillAllInstancesOfProcess();
 
 		}
 
