@@ -24,6 +24,9 @@ namespace UIAutomationClientBase
 
 			DesktopApp.WhiteWinFormsTestApp.KillAllInstancesOfProcess();
 
+
+			string frejnhis = "";
+
 		}
 
 
