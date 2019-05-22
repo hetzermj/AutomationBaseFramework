@@ -20,12 +20,19 @@ namespace UIAutomationClientBase
 
 			app.LaunchApplication();
 
-			Thread.Sleep(5000);
+
+			SearchCondition mainWindow = new SearchCondition(By.Name, "MainWindow", LocalizedControlType.Window);
+			SearchCondition btn_GetMultiple = new SearchCondition(By.Name, "Get Multiple", LocalizedControlType.Button);
+
+			Element root = new Element(new UIAutomationClient.CUIAutomationClass().GetRootElement());
+			WindowElement window = root.GetControl(UIAutomationClient.TreeScope.TreeScope_Children, mainWindow).WindowElement();
+
+			ControlElement button = window.GetControl(UIAutomationClient.TreeScope.TreeScope_Descendants, btn_GetMultiple);
+			button.Click();
+
+			Thread.Sleep(3000);
 
 			DesktopApp.WhiteWinFormsTestApp.KillAllInstancesOfProcess();
-
-
-			string frejnhis = "";
 
 		}
 
