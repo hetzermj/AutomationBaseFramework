@@ -48,6 +48,7 @@ namespace UIAutomationClientBase.Elements
 			center.Y = rectangle.top + ((rectangle.bottom - rectangle.top) / 2);			
 			Mouse.Instance.Location = center;
 			Thread.Sleep(50);
+
 			Mouse.Instance.Click(MouseButton.Left, center);
 		}
 
