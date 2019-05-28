@@ -18,10 +18,10 @@ namespace UIAutomationClientBase.Elements
 		private bool _IsEnabled = false;
 		public bool IsEnabled { get { return this.IUIElement.CurrentIsEnabled == 1; } }
 		public tagRECT BoundingRectangle { get; set; }
-		private int counter = 0;
 
 		public Element(IUIAutomationElement element)
 		{
+			int counter = 0;
 			if (element != null)
 			{
 				this.IsNull = false;
@@ -35,7 +35,6 @@ namespace UIAutomationClientBase.Elements
 						this.ClassName = element.CurrentClassName;
 						this.LocalizedControlType = element.CurrentLocalizedControlType;
 						this.ProcessId = element.CurrentProcessId;
-						//this.IsEnabled = element.CurrentIsEnabled == 1;
 						this.BoundingRectangle = element.CurrentBoundingRectangle;
 						break;
 					}
@@ -115,10 +114,9 @@ namespace UIAutomationClientBase.Elements
 		}
 
 		/// <summary>
-		///
+		/// Returns the current Element's next specified relative.
 		/// </summary>
 		/// <param name="RelativeType"></param>
-		/// <param name="Condition"></param>
 		/// <returns></returns>
 		public Element GetNextRelative(ElementRelative RelativeType)
 		{
@@ -171,16 +169,14 @@ namespace UIAutomationClientBase.Elements
 		/// <summary>
 		/// <para>This method will continually get the same subsequent relatives until a match is found or no more elements exist (null element returned).</para>
 		/// <para>Useful for stepping down a large tree until the expected element is found.</para>
-		/// <para>Example: Recursively finds the first child of the next element until a condition is hit.</para>
+		/// <para>Example: Continuously walks through the the next sibling Element until the SearchCondition is met.</para>
 		/// </summary>
 		/// <param name="RelativeType"></param>
 		/// <param name="Condition"></param>
+		/// <param name="NumberOfRelatives">Optional parameter to search up to a maximum amount of Elements in the tree.</param>
 		/// <returns></returns>
 		public Element GetRelativeElementUntilFound(ElementRelative RelativeType, SearchCondition Condition, int NumberOfRelatives = 1000)
 		{
-			Console.WriteLine($"--- Start of GetRelativeElementUntilFound Method ---");
-			//Console.WriteLine($"--- Iterating through Relative Type : {RelativeType.ToString()} ---");
-			Console.WriteLine($"--- Looking for Condition - By: [{Condition.By}] - ByValue: [{Condition.ByValue}] - LocalizedControlType: [{Condition.ControlType}] ---");
 			IUIAutomationElement relative = this.IUIElement;
 
 			IUIAutomationTreeWalker walker = new CUIAutomationClass().RawViewWalker;
@@ -192,7 +188,6 @@ namespace UIAutomationClientBase.Elements
 						try
 						{
 							relative = walker.GetParentElement(relative);
-							//Console.WriteLine($"-- Current Relative Properties - Name: [{relative.Name}] - AutomationId: [{relative.AutomationId}] - LocalizedControlType: [{relative.LocalizedControlType}]");
 						}
 						catch (COMException e) { }
 
@@ -208,7 +203,6 @@ namespace UIAutomationClientBase.Elements
 						try
 						{
 							relative = walker.GetFirstChildElement(relative);
-							//Console.WriteLine($"-- Current Relative Properties - Name: [{relative.CurrentName}] - AutomationId: [{relative.CurrentAutomationId}] - LocalizedControlType: [{relative.CurrentLocalizedControlType}]");
 						}
 						catch (COMException e) { }
 
@@ -224,7 +218,21 @@ namespace UIAutomationClientBase.Elements
 						try
 						{
 							relative = walker.GetNextSiblingElement(relative);
-							//Console.WriteLine($"-- Current Relative Properties - Name: [{relative.Name}] - AutomationId: [{relative.AutomationId}] - LocalizedControlType: [{relative.LocalizedControlType}]");
+						}
+						catch (COMException e) { }
+
+						if (relative == null)
+							break;
+						else if (MatchElementCondition(relative, Condition))
+							break;
+					}
+					break;
+				case ElementRelative.PreviousSibling:
+					for (int i = 0; i < NumberOfRelatives; i++)
+					{
+						try
+						{
+							relative = walker.GetPreviousSiblingElement(relative);
 						}
 						catch (COMException e) { }
 
@@ -236,14 +244,13 @@ namespace UIAutomationClientBase.Elements
 					break;
 				default: throw new Exception("Given enum was not present in the switch!!!");
 			}
+
 			if (relative == null)
 			{
-				//Console.WriteLine($"--- End of GetRelativeElementUntilFound Method - Returning Null ---");
 				return null;
 			}
 			else
 			{
-				//Console.WriteLine($"--- End of GetRelativeElementUntilFound Method - Returning Element ---");
 				return new Element(relative);
 			}
 		}

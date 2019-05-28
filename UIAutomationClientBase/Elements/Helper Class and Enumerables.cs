@@ -46,7 +46,8 @@ namespace UIAutomationClientBase.Elements
 	{
 		Parent,
 		FirstChild,
-		NextSibling
+		NextSibling,
+		PreviousSibling
 	}
 
 	public static class UIA_Enums
