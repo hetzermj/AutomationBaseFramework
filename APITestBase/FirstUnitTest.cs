@@ -18,7 +18,7 @@ namespace APITestBase
             var client = new RestClient("http://dummy.restapiexample.com/");
             // client.Authenticator = new HttpBasicAuthenticator(username, password);
 
-            var request = new RestRequest("http://dummy.restapiexample.com/api/v1/employees", Method.GET, DataFormat.Json);
+            var request = new RestRequest("http://dummy.restapiexample.com/api/v1/employee/26061", Method.GET, DataFormat.Json);
             //request.AddParameter("name", "value"); // adds to POST or URL querystring based on Method
             //request.AddUrlSegment("id", "123"); // replaces matching token in request.Resource            
 
