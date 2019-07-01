@@ -22,8 +22,8 @@ namespace AppiumBase.Tests
 		[Test]
 		public void SauceLabsTest()
 		{
-			string USERNAME = "hetzermj";
-			string ACCESS_KEY = "5112ddb0-a042-4723-94ef-c126e590991d";
+			string USERNAME = "";
+			string ACCESS_KEY = "";
 			string URL = "https://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:443/wd/hub";
 
 			AndroidDriver<RemoteWebElement> _driver = null;
@@ -63,8 +63,8 @@ namespace AppiumBase.Tests
 		[Test]
 		public void TestObjectTest()
 		{
-			string USERNAME = "tlemmonds";
-			string ACCESS_KEY = "2D8834256B8F4C9FB0F67850E050BEB4";
+			string USERNAME = "";
+			string ACCESS_KEY = "";
 			string URL = "https://" + USERNAME + ":" + ACCESS_KEY + "@us1.appium.testobject.com/wd/hub";
 			string url2 = "https://us1.appium.testobject.com/wd/hub";
 
@@ -78,8 +78,8 @@ namespace AppiumBase.Tests
 			cap.SetCapability("platformVersion", "8.0.0");
 			cap.SetCapability("testobject_app_id", "2");
 			//cap.SetCapability("app", "sauce-storage:selendroid-test-app.apk");
-			cap.SetCapability("testobject_api_key", "2D8834256B8F4C9FB0F67850E050BEB4");
-			cap.SetCapability("tunnelIdentifier", "93c7c5c8-fe64-406f-8f94-f018d1b71b4b");
+			cap.SetCapability("testobject_api_key", "");
+			cap.SetCapability("tunnelIdentifier", "");
 			cap.SetCapability("browserName", "");
 			cap.SetCapability("automationName", "Appium");
 			cap.SetCapability("deviceOrientation", "portrait");

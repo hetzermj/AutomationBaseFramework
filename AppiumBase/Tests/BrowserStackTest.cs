@@ -11,8 +11,8 @@ namespace AppiumBase.Tests
 	public class BrowserStackTest
 	{
 
-		readonly static string userName = "mikehetzer3";
-		readonly static string accessKey = "j1aRpzsyYJQAT1sqZh1C";
+		readonly static string userName = "";
+		readonly static string accessKey = "";
 
 		//public static string URL = "http://hub-cloud.browserstack.com/wd/hub";
 		public static string URL = "https://" + userName + ":" + accessKey + "@hub-cloud.browserstack.com/wd/hub";
@@ -28,9 +28,9 @@ namespace AppiumBase.Tests
 			cap.SetCapability("osVersion", "8.0");
 			cap.SetCapability("device", "Samsung Galaxy S9");
 			cap.SetCapability("realMobile", "true");
-			cap.SetCapability("projectName", "ProjectPOC");
-			cap.SetCapability("buildName", "BuildPOC");
-			cap.SetCapability("sessionName", "hetzermj_SampleTest");
+			cap.SetCapability("projectName", "");
+			cap.SetCapability("buildName", "");
+			cap.SetCapability("sessionName", "");
 			cap.SetCapability("local", "true");
 			//cap.SetCapability("userName", "mikehetzer3");
 			//cap.SetCapability("accessKey", "j1aRpzsyYJQAT1sqZh1C");
