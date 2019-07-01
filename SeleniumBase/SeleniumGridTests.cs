@@ -12,8 +12,6 @@ namespace SeleniumBase
 	{
 		ChromeOptions Options = null;
 
-		private string hubURL = "http://ip:port/wd/hub";
-
 		[SetUp]
 		public void Setup()
 		{
@@ -32,7 +30,7 @@ namespace SeleniumBase
 		[Test, Parallelizable]
 		public void TestMethod1()
 		{
-			RemoteWebDriver driver = new RemoteWebDriver(new Uri(hubURL), Options);			
+			RemoteWebDriver driver = new RemoteWebDriver(new Uri("http://10.20.1.42:4444/wd/hub"), Options);			
 			driver.Navigate().GoToUrl("http://www.google.com");
 			Thread.Sleep(1000);
 			driver.Quit();
@@ -41,7 +39,7 @@ namespace SeleniumBase
 		[Test, Parallelizable]
 		public void TestMethod2()
 		{
-			RemoteWebDriver driver = new RemoteWebDriver(new Uri(hubURL), Options);
+			RemoteWebDriver driver = new RemoteWebDriver(new Uri("http://10.20.1.42:4444/wd/hub"), Options);
 			driver.Navigate().GoToUrl("http://www.google.com");
 			Thread.Sleep(1000);
 			driver.Quit();
@@ -50,7 +48,7 @@ namespace SeleniumBase
 		[Test, Parallelizable]
 		public void TestMethod3()
 		{
-			RemoteWebDriver driver = new RemoteWebDriver(new Uri(hubURL), Options);
+			RemoteWebDriver driver = new RemoteWebDriver(new Uri("http://10.20.1.42:4444/wd/hub"), Options);
 			driver.Navigate().GoToUrl("http://www.google.com");
 			Thread.Sleep(1000);
 			driver.Quit();
@@ -59,7 +57,7 @@ namespace SeleniumBase
 		[Test, Parallelizable]
 		public void TestMethod4()
 		{
-			RemoteWebDriver driver = new RemoteWebDriver(new Uri(hubURL), Options);
+			RemoteWebDriver driver = new RemoteWebDriver(new Uri("http://10.20.1.42:4444/wd/hub"), Options);
 			driver.Navigate().GoToUrl("http://www.google.com");
 			Thread.Sleep(1000);
 			driver.Quit();
