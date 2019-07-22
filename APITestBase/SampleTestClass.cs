@@ -39,7 +39,7 @@ namespace APITestBase
         public void Test2()
         {
 			//var client = new RestClient("http://dummy.restapiexample.com/");
-			var request = new RestRequest("http://dummy.restapiexample.com/api/v1/employee/34972", Method.GET, DataFormat.Json);
+			var request = new RestRequest("http://dummy.restapiexample.com/api/v1/employee/34973", Method.GET, DataFormat.Json);
 
 			//IRestResponse response = client.Execute(request);
 			//var content = response.Content; // raw content as string
@@ -48,7 +48,7 @@ namespace APITestBase
 
 			var thing = Execute<Employee>(request);
 
-			emp = GetEmployee("34972");
+			emp = GetEmployee("34973");
 
 			return;
 
