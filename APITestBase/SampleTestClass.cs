@@ -3,14 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using APITestBase.DataObjects;
 using NUnit.Framework;
 using RestSharp;
 
 namespace APITestBase
 {
     [TestFixture]
-    public class FirstUnitTest
+    public class SampleTestClass : DummyEmployeeAPIBase
     {
+		public SampleTestClass() : base()
+		{
+
+		}
 
         [Test]
         public void Test1()
@@ -33,8 +38,22 @@ namespace APITestBase
         [Test]
         public void Test2()
         {
-            
-        }
+			//var client = new RestClient("http://dummy.restapiexample.com/");
+			var request = new RestRequest("http://dummy.restapiexample.com/api/v1/employee/34972", Method.GET, DataFormat.Json);
+
+			//IRestResponse response = client.Execute(request);
+			//var content = response.Content; // raw content as string
+
+			Employee emp = new Employee();
+
+			var thing = Execute<Employee>(request);
+
+			emp = GetEmployee("34972");
+
+			return;
+
+
+		}
 
 
     }
