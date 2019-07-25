@@ -13,5 +13,6 @@ namespace APITestBase.DataObjects
 		public string Employee_Salary { get; set; }
 		public string Employee_Age { get; set; }
 		public string Profile_Image { get; set; }
+		public string DummyProperty { get; set; }
 	}
 }
